@@ -2,8 +2,9 @@ version: '3'
 
 services:
   download_urls:
-    image:
-      php:7.4-cli
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./volume:/volume
     working_dir: /volume
