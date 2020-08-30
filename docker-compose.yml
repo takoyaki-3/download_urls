@@ -2,6 +2,13 @@ version: '3'
 
 services:
   download_urls:
+    image: php:7.4-cli
+    volumes:
+      - ./volume:/volume
+    working_dir: /volume
+    command:
+      php download_urls.php
+  zip_files:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,4 +16,4 @@ services:
       - ./volume:/volume
     working_dir: /volume
     command:
-      php download_urls.php
+      php zip_files.php
